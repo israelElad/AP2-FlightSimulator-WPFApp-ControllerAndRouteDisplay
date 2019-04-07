@@ -38,9 +38,14 @@
                                         <RotateTransform Angle="90" />
                                     </TextBlock.LayoutTransform>
                                 </TextBlock>
-                                <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
-
-
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
+                                    <TextBlock Name="throttleIndicator" Text="0" FontWeight="Bold" Margin="13,20,0,329.6" FontSize="14" HorizontalAlignment="Left" Width="25"/>
+                                </Grid>
                                 <Grid DockPanel.Dock="Right">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
