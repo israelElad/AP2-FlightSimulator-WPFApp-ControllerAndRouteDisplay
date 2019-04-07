@@ -23,75 +23,12 @@
                 <TabControl.Items>
                     <TabItem Header="Manual">
                         <TabItem.Content>
-                            <DockPanel>
-                                <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Margin="32,0,0,5" FontSize="14"/>
-                                <Grid DockPanel.Dock="Bottom">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Slider Name="rudderSlider" Grid.Column="0" Minimum="-1" Maximum="1" Value="0" Margin="75,10,10.2,-10.2"/>
-                                    <TextBlock Name="rudderIndicator" Grid.Column="1" Text="0" FontWeight="Bold" Margin="4,10,20,4" FontSize="14"/>
-                                </Grid>
-                                <TextBlock Name="throttle" Text="← throttle →" DockPanel.Dock="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,0,0" FontSize="14">
-                                    <TextBlock.LayoutTransform>
-                                        <RotateTransform Angle="90" />
-                                    </TextBlock.LayoutTransform>
-                                </TextBlock>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
-                                    <TextBlock Name="throttleIndicator" Text="0" FontWeight="Bold" Margin="13,20,0,329.6" FontSize="14" HorizontalAlignment="Left" Width="25"/>
-                                </Grid>
-                                <Grid DockPanel.Dock="Right">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Name="elevatorIndicator" Text="       0.0" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="0" >
-                                        <TextBlock.LayoutTransform>
-                                            <RotateTransform Angle="90" />
-                                        </TextBlock.LayoutTransform>
-                                    </TextBlock>
-                                    <TextBlock Name="elevator" Text="← elevator →" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="1">
-                                        <TextBlock.LayoutTransform>
-                                            <RotateTransform Angle="90" />
-                                        </TextBlock.LayoutTransform>
-                                    </TextBlock>
-                                </Grid>
-                                
-                                
-                                <Grid DockPanel.Dock="Top">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="12*"/>
-                                        <RowDefinition Height="17*"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Name="aileron" Text="← aileron →"  FontWeight="Bold" Margin="122,5,120.8,4.8" FontSize="14" Grid.Column="0" HorizontalAlignment="Center" Grid.RowSpan="2"/>
-                                    <TextBlock Name="aileronIndicator" Text="0.0" FontWeight="Bold" Margin="0.2,5,-0.2,4.8" FontSize="14" Grid.Column="1" Grid.RowSpan="2"/>
-                                </Grid>
-                                <views:Joystick />
-                            </DockPanel>
+                            <views:ManualControl />
                         </TabItem.Content>
                     </TabItem>
                     <TabItem Header="Auto Pilot">
                         <TabItem.Content>
-                            <Viewbox>
-                                <DockPanel LastChildFill="True">
-                                    <Grid DockPanel.Dock="Bottom">
-                                        <Button Name="OK" Content="OK" Margin="129,10,185,10.2" />
-                                        <Button Name="Clear" Content="Clear" Margin="189,10,119,10.2" />
-                                    </Grid>
-                                    <TextBox Height="300" Width="356"/>
-
-                                </DockPanel>
-                            </Viewbox>
+                            <views:AutoControl />
                         </TabItem.Content>
                     </TabItem>
                 </TabControl.Items>
