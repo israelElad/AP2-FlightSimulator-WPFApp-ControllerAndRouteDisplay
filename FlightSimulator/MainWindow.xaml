@@ -24,16 +24,20 @@
                     <TabItem Header="Manual">
                         <TabItem.Content>
                             <DockPanel>
-                                <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                                <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5" FontSize="14"/>
                                 <Slider Name="rudderSlider" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Bottom" Margin="60, 10"/>
-                                <TextBlock Name="throttle" Text="← throttle →" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="20,0,0,0">
-                                    <TextBlock.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform Angle="90"/>
-                                        </TransformGroup>
-                                    </TextBlock.RenderTransform>
+                                <TextBlock Name="throttle" Text="← throttle →" DockPanel.Dock="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,0,0" FontSize="14">
+                                    <TextBlock.LayoutTransform>
+                                        <RotateTransform Angle="90" />
+                                    </TextBlock.LayoutTransform>
                                 </TextBlock>
-                                <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="0, 40, 10, 40"/>
+                                <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
+                                <TextBlock Name="elevator" Text="← elevator →" DockPanel.Dock="Right" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,5,0" FontSize="14">
+                                    <TextBlock.LayoutTransform>
+                                        <RotateTransform Angle="90" />
+                                    </TextBlock.LayoutTransform>
+                                </TextBlock>
+                                <TextBlock Name="aileron" Text="← aileron →" DockPanel.Dock="Top" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5" FontSize="14"/>
                                 <views:Joystick />
                             </DockPanel>
                         </TabItem.Content>
