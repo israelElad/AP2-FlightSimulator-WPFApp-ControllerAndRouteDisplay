@@ -24,26 +24,44 @@
                     <TabItem Header="Manual">
                         <TabItem.Content>
                             <DockPanel>
-                                <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5" FontSize="14"/>
-                                <Slider Name="rudderSlider" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Bottom" Margin="60, 10"/>
+                                <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Margin="32,0,0,5" FontSize="14"/>
+                                <Grid DockPanel.Dock="Bottom">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Slider Name="rudderSlider" Grid.Column="0" Minimum="-1" Maximum="1" Value="0" Margin="75,10,10.2,-10.2"/>
+                                    <TextBlock Name="rudderIndicator" Grid.Column="1" Text="0" FontWeight="Bold" Margin="4,10,20,4" FontSize="14"/>
+                                </Grid>
                                 <TextBlock Name="throttle" Text="← throttle →" DockPanel.Dock="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,0,0" FontSize="14">
                                     <TextBlock.LayoutTransform>
                                         <RotateTransform Angle="90" />
                                     </TextBlock.LayoutTransform>
                                 </TextBlock>
-                                <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
+                                    <TextBlock Name="throttleIndicator" Text="0" FontWeight="Bold" Margin="13,20,0,329.6" FontSize="14" HorizontalAlignment="Left" Width="25"/>
+                                </Grid>
                                 <TextBlock Name="elevator" Text="← elevator →" DockPanel.Dock="Right" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,5,0" FontSize="14">
                                     <TextBlock.LayoutTransform>
                                         <RotateTransform Angle="90" />
                                     </TextBlock.LayoutTransform>
                                 </TextBlock>
                                 <Grid DockPanel.Dock="Top">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="12*"/>
+                                        <RowDefinition Height="17*"/>
+                                    </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Name="aileron" Text="← aileron →"  FontWeight="Bold" Margin="0,5,0,5" FontSize="14" Grid.Column="0" HorizontalAlignment="Center"/>
-                                    <TextBlock Name="aileronIndicator" Text="0.0" FontWeight="Bold" Margin="0,5,0,5" FontSize="14" Grid.Column="1"/>
+                                    <TextBlock Name="aileron" Text="← aileron →"  FontWeight="Bold" Margin="122,5,120.8,4.8" FontSize="14" Grid.Column="0" HorizontalAlignment="Center" Grid.RowSpan="2"/>
+                                    <TextBlock Name="aileronIndicator" Text="0.0" FontWeight="Bold" Margin="0.2,5,-0.2,4.8" FontSize="14" Grid.Column="1" Grid.RowSpan="2"/>
                                 </Grid>
                                 <views:Joystick />
                             </DockPanel>
