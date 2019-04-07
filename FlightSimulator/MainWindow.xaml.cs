@@ -22,6 +22,7 @@ namespace FlightSimulator
         public MainWindow()
         {
             InitializeComponent();
+            Header.Foreground = Brushes.BlueViolet;
         }
     }
 }
