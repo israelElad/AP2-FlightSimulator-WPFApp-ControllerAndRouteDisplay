@@ -18,13 +18,24 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <views:FlightBoard Grid.Row="2" Grid.Column="0"/>
-        
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <TabControl>
                 <TabControl.Items>
                     <TabItem Header="Manual">
                         <TabItem.Content>
-                            <views:Joystick />
+                            <DockPanel>
+                                <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center"/>
+                                <Slider Name="rudderSlider" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Bottom" Margin="60, 10"/>
+                                <TextBlock Name="throttle" Text="← throttle →" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="20,0,0,0">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="90"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                                <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="0, 40, 10, 40"/>
+                                <views:Joystick />
+                            </DockPanel>
                         </TabItem.Content>
                     </TabItem>
                     <TabItem Header="Auto Pilot">
@@ -32,14 +43,9 @@
                             <views:Joystick />
                         </TabItem.Content>
                     </TabItem>
-
-
-
                 </TabControl.Items>
-            </TabControl>   
-               
+            </TabControl>
         </Viewbox>
-
         <TextBlock Name="Header" Grid.Row="0" Grid.ColumnSpan="2" Text="Flight Simulator" HorizontalAlignment="Center" FontSize="26" Margin="0,0,0,5"/>
         <Viewbox Grid.Row="1" Grid.Column="0">
             <Grid>
