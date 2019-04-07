@@ -51,7 +51,16 @@
                     </TabItem>
                     <TabItem Header="Auto Pilot">
                         <TabItem.Content>
-                            <views:Joystick />
+                            <Viewbox>
+                                <DockPanel LastChildFill="True">
+                                    <Grid DockPanel.Dock="Bottom">
+                                        <Button Name="OK" Content="OK" Margin="129,10,185,10.2" />
+                                        <Button Name="Clear" Content="Clear" Margin="189,10,119,10.2" />
+                                    </Grid>
+                                    <TextBox Height="300" Width="356"/>
+
+                                </DockPanel>
+                            </Viewbox>
                         </TabItem.Content>
                     </TabItem>
                 </TabControl.Items>
