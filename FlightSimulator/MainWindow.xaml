@@ -38,19 +38,27 @@
                                         <RotateTransform Angle="90" />
                                     </TextBlock.LayoutTransform>
                                 </TextBlock>
-                                <Grid>
+                                <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
+
+
+                                <Grid DockPanel.Dock="Right">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
-                                    <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
-                                    <TextBlock Name="throttleIndicator" Text="0" FontWeight="Bold" Margin="13,20,0,329.6" FontSize="14" HorizontalAlignment="Left" Width="25"/>
+                                    <TextBlock Name="elevatorIndicator" Text="       0.0" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="0" >
+                                        <TextBlock.LayoutTransform>
+                                            <RotateTransform Angle="90" />
+                                        </TextBlock.LayoutTransform>
+                                    </TextBlock>
+                                    <TextBlock Name="elevator" Text="← elevator →" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="1">
+                                        <TextBlock.LayoutTransform>
+                                            <RotateTransform Angle="90" />
+                                        </TextBlock.LayoutTransform>
+                                    </TextBlock>
                                 </Grid>
-                                <TextBlock Name="elevator" Text="← elevator →" DockPanel.Dock="Right" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,5,0" FontSize="14">
-                                    <TextBlock.LayoutTransform>
-                                        <RotateTransform Angle="90" />
-                                    </TextBlock.LayoutTransform>
-                                </TextBlock>
+                                
+                                
                                 <Grid DockPanel.Dock="Top">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="12*"/>
