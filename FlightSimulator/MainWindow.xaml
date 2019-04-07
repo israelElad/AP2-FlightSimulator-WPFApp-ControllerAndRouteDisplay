@@ -24,5 +24,6 @@
         <TextBlock Name="Header" Grid.Row="0" Grid.ColumnSpan="2" Text="Flight Simulator" HorizontalAlignment="Center" FontSize="26" Margin="0,0,0,5"/>
         <Button Name="Connect" Content="Connect" Grid.Row="1" Grid.Column="0" />
         <Button Name="Settings" Content="Settings" Grid.Row="1" Grid.Column="0" />
+        <Button >hiiiiiiiiiiiiiiiii</Button>
     </Grid>
 </Window>
