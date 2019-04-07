@@ -37,7 +37,14 @@
                                         <RotateTransform Angle="90" />
                                     </TextBlock.LayoutTransform>
                                 </TextBlock>
-                                <TextBlock Name="aileron" Text="← aileron →" DockPanel.Dock="Top" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,5,0,5" FontSize="14"/>
+                                <Grid DockPanel.Dock="Top">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Name="aileron" Text="← aileron →"  FontWeight="Bold" Margin="0,5,0,5" FontSize="14" Grid.Column="0" HorizontalAlignment="Center"/>
+                                    <TextBlock Name="aileronIndicator" Text="0.0" FontWeight="Bold" Margin="0,5,0,5" FontSize="14" Grid.Column="1"/>
+                                </Grid>
                                 <views:Joystick />
                             </DockPanel>
                         </TabItem.Content>
