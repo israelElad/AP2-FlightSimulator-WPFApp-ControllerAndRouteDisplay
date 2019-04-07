@@ -17,7 +17,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <views:FlightBoard Grid.Row="1" Grid.Column="0"/>
-        <views:Joystick Grid.Row="1" Grid.Column="1"/>
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <views:Joystick />
+        </Viewbox>
+        
         <TextBlock Name="Header" Grid.Row="0" Grid.ColumnSpan="2" Text="Flight Simulator" HorizontalAlignment="Center" FontSize="26" Margin="0,0,0,5"/>
     </Grid>
 </Window>
