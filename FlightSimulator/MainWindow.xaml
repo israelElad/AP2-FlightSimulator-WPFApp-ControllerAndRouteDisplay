@@ -22,8 +22,11 @@
             <views:Joystick />
         </Viewbox>
         <TextBlock Name="Header" Grid.Row="0" Grid.ColumnSpan="2" Text="Flight Simulator" HorizontalAlignment="Center" FontSize="26" Margin="0,0,0,5"/>
-        <Button Name="Connect" Content="Connect" Grid.Row="1" Grid.Column="0" />
-        <Button Name="Settings" Content="Settings" Grid.Row="1" Grid.Column="0" />
-        <Button> hello </Button>
+        <Viewbox Grid.Row="1" Grid.Column="0">
+            <Grid>
+                <Button Name="Connect" Content="Connect" Margin="150, 10, 190, 10" />
+                <Button Name="Settings" Content="Settings" Margin="220, 10, 120, 10" />
+            </Grid>
+        </Viewbox>
     </Grid>
 </Window>
