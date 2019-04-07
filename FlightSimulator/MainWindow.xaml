@@ -21,7 +21,7 @@
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <TabControl>
                 <TabControl.Items>
-                    <TabItem Header="Manual">
+                    <TabItem Name="Manual" Header="Manual">
                         <TabItem.Content>
                             <DockPanel>
                                 <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5" FontSize="14"/>
@@ -32,11 +32,22 @@
                                     </TextBlock.LayoutTransform>
                                 </TextBlock>
                                 <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
-                                <TextBlock Name="elevator" Text="← elevator →" DockPanel.Dock="Right" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,5,0" FontSize="14">
-                                    <TextBlock.LayoutTransform>
-                                        <RotateTransform Angle="90" />
-                                    </TextBlock.LayoutTransform>
-                                </TextBlock>
+                                <Grid DockPanel.Dock="Right">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Name="elevatorIndicator" Text="       0.0" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="0" >
+                                        <TextBlock.LayoutTransform>
+                                            <RotateTransform Angle="90" />
+                                        </TextBlock.LayoutTransform>
+                                    </TextBlock>
+                                    <TextBlock Name="elevator" Text="← elevator →" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="1">
+                                        <TextBlock.LayoutTransform>
+                                            <RotateTransform Angle="90" />
+                                        </TextBlock.LayoutTransform>
+                                    </TextBlock>
+                                </Grid>
                                 <Grid DockPanel.Dock="Top">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -49,7 +60,7 @@
                             </DockPanel>
                         </TabItem.Content>
                     </TabItem>
-                    <TabItem Header="Auto Pilot">
+                    <TabItem Name="autoPilot" Header="Auto Pilot">
                         <TabItem.Content>
                             <Viewbox>
                                 <DockPanel LastChildFill="True">
@@ -58,7 +69,6 @@
                                         <Button Name="Clear" Content="Clear" Margin="189,10,119,10.2" />
                                     </Grid>
                                     <TextBox Height="300" Width="356"/>
-
                                 </DockPanel>
                             </Viewbox>
                         </TabItem.Content>
