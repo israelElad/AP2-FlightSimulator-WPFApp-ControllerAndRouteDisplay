@@ -10,17 +10,19 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <views:FlightBoard Grid.Row="1" Grid.Column="0"/>
-        <Viewbox Grid.Row="1" Grid.Column="1">
+        <views:FlightBoard Grid.Row="2" Grid.Column="0"/>
+        <Viewbox Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <views:Joystick />
         </Viewbox>
-        
         <TextBlock Name="Header" Grid.Row="0" Grid.ColumnSpan="2" Text="Flight Simulator" HorizontalAlignment="Center" FontSize="26" Margin="0,0,0,5"/>
+        <Button Name="Connect" Content="Connect" Grid.Row="1" Grid.Column="0" />
+        <Button Name="Settings" Content="Settings" Grid.Row="1" Grid.Column="0" />
     </Grid>
 </Window>
