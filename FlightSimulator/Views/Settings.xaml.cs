@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for Flight.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Flight : UserControl
+    public partial class Settings : Window
     {
-        public Flight()
+        public Settings()
         {
             InitializeComponent();
-        }
-
-        private void Settings_Click(object sender, RoutedEventArgs e)
-        {
-            Settings settingsWindow = new Settings();
-            settingsWindow.Show();
         }
     }
 }
