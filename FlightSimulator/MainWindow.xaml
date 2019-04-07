@@ -21,7 +21,7 @@
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <TabControl>
                 <TabControl.Items>
-                    <TabItem Name="Manual" Header="Manual">
+                    <TabItem Header="Manual">
                         <TabItem.Content>
                             <DockPanel>
                                 <TextBlock Name="rudder" Text="← rudder →" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,5" FontSize="14"/>
@@ -32,6 +32,8 @@
                                     </TextBlock.LayoutTransform>
                                 </TextBlock>
                                 <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
+
+
                                 <Grid DockPanel.Dock="Right">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -48,6 +50,8 @@
                                         </TextBlock.LayoutTransform>
                                     </TextBlock>
                                 </Grid>
+                                
+                                
                                 <Grid DockPanel.Dock="Top">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -60,7 +64,7 @@
                             </DockPanel>
                         </TabItem.Content>
                     </TabItem>
-                    <TabItem Name="autoPilot" Header="Auto Pilot">
+                    <TabItem Header="Auto Pilot">
                         <TabItem.Content>
                             <Viewbox>
                                 <DockPanel LastChildFill="True">
@@ -69,6 +73,7 @@
                                         <Button Name="Clear" Content="Clear" Margin="189,10,119,10.2" />
                                     </Grid>
                                     <TextBox Height="300" Width="356"/>
+
                                 </DockPanel>
                             </Viewbox>
                         </TabItem.Content>
