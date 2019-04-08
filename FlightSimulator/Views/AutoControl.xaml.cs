@@ -23,6 +23,6 @@ namespace FlightSimulator.Views
         public AutoControl()
         {
             InitializeComponent();
-        }
+        }   
     }
 }

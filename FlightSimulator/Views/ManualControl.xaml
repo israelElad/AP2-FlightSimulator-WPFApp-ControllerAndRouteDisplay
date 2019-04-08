@@ -27,7 +27,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="0" DockPanel.Dock="Left" Margin="10, 40, 10, 40"/>
-            <TextBlock Name="throttleIndicator" Text="0" FontWeight="Bold" Margin="13,20,0,329.6" FontSize="14" HorizontalAlignment="Left" Width="25"/>
+            <TextBlock Name="throttleIndicator" Text="{Binding ElementName=throttleSlider, Path=Value ,StringFormat=N2}" FontWeight="Bold" Margin="10,20,-15.6,352.8" FontSize="14" HorizontalAlignment="Left" Width="44"/>
         </Grid>
         <Grid DockPanel.Dock="Right">
             <Grid.RowDefinitions>
