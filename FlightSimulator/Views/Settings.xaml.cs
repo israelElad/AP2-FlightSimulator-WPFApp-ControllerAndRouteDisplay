@@ -23,5 +23,10 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
         }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -24,5 +24,10 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
         }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
