@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="Settings" Height="200" Width="270">
+        Title="Settings" Height="200" Width="270" MinWidth="205" MinHeight="175">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" MinWidth="140"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="Flight Server IP:" Grid.Row="0" Grid.Column="0" Margin="5"/>
