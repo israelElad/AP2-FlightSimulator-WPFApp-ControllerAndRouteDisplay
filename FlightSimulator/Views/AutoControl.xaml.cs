@@ -23,6 +23,11 @@ namespace FlightSimulator.Views
         public AutoControl()
         {
             InitializeComponent();
-        }   
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextBoxAuto.Clear();
+        }
     }
 }
