@@ -12,7 +12,18 @@
                 <Button Name="OK" Content="OK" Margin="129,10,185,10.2" />
                 <Button Name="Clear" Content="Clear" Margin="189,10,119,10.2" Click="Clear_Click"/>
             </Grid>
-            <TextBox Height="300" Width="356"/>
+            <TextBox Name="textBoxAuto" Height="300" Width="356">
+                <TextBox.Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Background" Value="DarkSalmon"/>
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Background" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
         </DockPanel>
     </Viewbox>
 </UserControl>
