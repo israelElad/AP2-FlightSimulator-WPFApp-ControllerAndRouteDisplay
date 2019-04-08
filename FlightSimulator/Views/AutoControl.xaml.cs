@@ -27,7 +27,7 @@ namespace FlightSimulator.Views
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            
+            this.TextBoxAuto.Clear();
         }
     }
 }
