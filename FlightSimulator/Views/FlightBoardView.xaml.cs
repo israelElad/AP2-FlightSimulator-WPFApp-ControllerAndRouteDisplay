@@ -23,12 +23,12 @@ namespace FlightSimulator.Views
     /// <summary>
     /// Interaction logic for MazeBoard.xaml
     /// </summary>
-    public partial class FlightBoard : UserControl
+    public partial class FlightBoardView : UserControl
     {
         ObservableDataSource<Point> planeLocations = null;
-        FlightBoardViewModel viewModel;
+        FlightViewModel viewModel;
 
-        public FlightBoard()
+        public FlightBoardView()
         {
             InitializeComponent();
         }

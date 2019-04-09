@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.ViewModels
 {
-    public class FlightBoardViewModel : BaseNotify
+    public class FlightViewModel : BaseNotify
     {
 
         public double Lon

@@ -18,9 +18,9 @@ namespace FlightSimulator.Views
     /// <summary>
     /// Interaction logic for AutoControl.xaml
     /// </summary>
-    public partial class AutoControl : UserControl
+    public partial class AutoControlView : UserControl
     {
-        public AutoControl()
+        public AutoControlView()
         {
             InitializeComponent();
         }

@@ -1,4 +1,4 @@
-﻿<UserControl flight:Class="FlightSimulator.Views.Flight"
+﻿<UserControl flight:Class="FlightSimulator.Views.FlightView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:flight="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -15,7 +15,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <views:FlightBoard Grid.Row="1" Grid.Column="0"/>
+        <views:FlightBoardView Grid.Row="1" Grid.Column="0"/>
         <Viewbox Grid.Row="0" Grid.Column="0">
             <Grid>
                 <Button Name="Connect" Content="Connect" Margin="150, 10, 190, 10" Click="Connect_Click" />

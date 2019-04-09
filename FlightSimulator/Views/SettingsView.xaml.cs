@@ -19,11 +19,11 @@ namespace FlightSimulator.Views
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Settings : Window
+    public partial class SettingsView : Window
     {
         private SettingsWindowViewModel viewModel;
 
-        public Settings()
+        public SettingsView()
         {
             InitializeComponent();
             this.viewModel = new SettingsWindowViewModel(new ApplicationSettingsModel());

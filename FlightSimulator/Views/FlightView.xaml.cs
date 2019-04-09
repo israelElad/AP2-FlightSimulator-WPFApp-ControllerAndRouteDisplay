@@ -20,16 +20,16 @@ namespace FlightSimulator.Views
     /// <summary>
     /// Interaction logic for Flight.xaml
     /// </summary>
-    public partial class Flight : UserControl
+    public partial class FlightView : UserControl
     {
-        public Flight()
+        public FlightView()
         {
             InitializeComponent();
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            Settings settingsWindow = new Settings();
+            SettingsView settingsWindow = new SettingsView();
             settingsWindow.Show();
         }
 

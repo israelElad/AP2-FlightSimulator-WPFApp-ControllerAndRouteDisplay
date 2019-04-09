@@ -16,18 +16,18 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <views:Flight Grid.Row="1" Grid.Column="0"/>
+        <views:FlightView Grid.Row="1" Grid.Column="0"/>
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <TabControl>
                 <TabControl.Items>
                     <TabItem Header="Manual">
                         <TabItem.Content>
-                            <views:ManualControl />
+                            <views:ManualControlView />
                         </TabItem.Content>
                     </TabItem>
                     <TabItem Header="Auto Pilot">
                         <TabItem.Content>
-                            <views:AutoControl />
+                            <views:AutoControlView />
                         </TabItem.Content>
                     </TabItem>
                 </TabControl.Items>
