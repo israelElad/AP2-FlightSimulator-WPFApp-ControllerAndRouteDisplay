@@ -72,11 +72,11 @@
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />
-    <Compile Include="Views\AutoControl.xaml.cs">
-      <DependentUpon>AutoControl.xaml</DependentUpon>
+    <Compile Include="Views\AutoControlView.xaml.cs">
+      <DependentUpon>AutoControlView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Flight.xaml.cs">
-      <DependentUpon>Flight.xaml</DependentUpon>
+    <Compile Include="Views\FlightView.xaml.cs">
+      <DependentUpon>FlightView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FlightBoard.xaml.cs">
       <DependentUpon>FlightBoard.xaml</DependentUpon>
@@ -88,21 +88,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\ManualControl.xaml.cs">
-      <DependentUpon>ManualControl.xaml</DependentUpon>
+    <Compile Include="Views\ManualControlView.xaml.cs">
+      <DependentUpon>ManualControlView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AutoControl.xaml">
+    <Page Include="Views\AutoControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Flight.xaml">
+    <Page Include="Views\FlightView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,11 +114,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ManualControl.xaml">
+    <Page Include="Views\ManualControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Settings.xaml">
+    <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
