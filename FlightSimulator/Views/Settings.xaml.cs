@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlightSimulator.Model;
+using FlightSimulator.ViewModels.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,25 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class Settings : Window
     {
+        private SettingsWindowViewModel viewModel;
+
         public Settings()
         {
             InitializeComponent();
+            this.viewModel = new SettingsWindowViewModel(new ApplicationSettingsModel());
+            DataContext = viewModel;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            IP.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            InfoPort.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            CommandPort.GetBindingExpression(TextBox.TextProperty).UpdateSource();
         }
     }
 }

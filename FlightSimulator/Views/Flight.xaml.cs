@@ -32,5 +32,10 @@ namespace FlightSimulator.Views
             Settings settingsWindow = new Settings();
             settingsWindow.Show();
         }
+
+        private void Connect_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
