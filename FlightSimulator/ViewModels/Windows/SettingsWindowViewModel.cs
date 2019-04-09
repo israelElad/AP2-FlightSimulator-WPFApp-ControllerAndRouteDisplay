@@ -49,8 +49,6 @@ namespace FlightSimulator.ViewModels.Windows
             }
         }
 
-     
-
         public void SaveSettings()
         {
             model.SaveSettings();
