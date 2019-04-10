@@ -31,6 +31,7 @@ namespace FlightSimulator.Views
         public FlightBoardView()
         {
             InitializeComponent();
+            //if a property changes in viewModel- activate Vm_PropertyChanged.
             viewModel.PropertyChanged += Vm_PropertyChanged;
         }
 
@@ -42,6 +43,10 @@ namespace FlightSimulator.Views
             plotter.AddLineGraph(planeLocations, 2, "Route");
         }
 
+       /*
+        * If a property with one of the names specified changes-
+        * write the new point on the FlightBoard.
+        * */
         private void Vm_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
