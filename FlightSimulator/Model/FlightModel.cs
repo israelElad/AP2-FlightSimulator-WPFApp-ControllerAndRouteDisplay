@@ -24,7 +24,7 @@ namespace FlightSimulator.Model
             set
             {
                 lon = value;
-                NotifyPropertyChanged("Lon");
+                propertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lon"));
             }
         }
 
@@ -38,7 +38,7 @@ namespace FlightSimulator.Model
             set
             {
                 lat = value;
-                NotifyPropertyChanged("Lat");
+                propertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lat"));
             }
         }
 
@@ -58,6 +58,8 @@ namespace FlightSimulator.Model
                     String[] data = server.readFromClient();
                     Lon = Convert.ToDouble(data[0]);
                     Lat = Convert.ToDouble(data[1]);
+                    Console.WriteLine("from client:1:"+lon);
+                    Console.WriteLine("from client:2:"+lat);
                 }
             }).Start();
         }
