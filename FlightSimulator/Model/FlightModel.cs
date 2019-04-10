@@ -24,7 +24,7 @@ namespace FlightSimulator.Model
             set
             {
                 lon = value;
-                NotifyPropertyChanged("Lon");
+                propertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lon"));
             }
         }
 
@@ -38,7 +38,7 @@ namespace FlightSimulator.Model
             set
             {
                 lat = value;
-                NotifyPropertyChanged("Lat");
+                propertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lat"));
             }
         }
 

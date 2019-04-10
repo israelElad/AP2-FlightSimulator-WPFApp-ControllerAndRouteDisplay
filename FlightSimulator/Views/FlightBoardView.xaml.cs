@@ -31,6 +31,7 @@ namespace FlightSimulator.Views
         public FlightBoardView()
         {
             InitializeComponent();
+            viewModel.PropertyChanged += Vm_PropertyChanged;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -38,7 +39,6 @@ namespace FlightSimulator.Views
             planeLocations = new ObservableDataSource<Point>();
             // Set identity mapping of point in collection to point on plot
             planeLocations.SetXYMapping(p => p);
-
             plotter.AddLineGraph(planeLocations, 2, "Route");
         }
 
@@ -47,11 +47,10 @@ namespace FlightSimulator.Views
             if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
             {
                 Point p1 = new Point(viewModel.Lat,viewModel.Lon);
+                Console.WriteLine("propChanges" + p1.X + "_" + p1.Y);
                 planeLocations.AppendAsync(Dispatcher, p1);
             }
         }
-
     }
-
 }
 

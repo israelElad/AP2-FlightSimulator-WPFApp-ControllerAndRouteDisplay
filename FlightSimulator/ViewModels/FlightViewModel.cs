@@ -3,6 +3,7 @@ using FlightSimulator.Model.Interface;
 using FlightSimulator.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace FlightSimulator.ViewModels
     {
         private FlightModel model;
         private SettingsView settingsWindow;
+
+        public event PropertyChangedEventHandler propertyChanged;
 
         private ICommand _connectCommand;
         public ICommand ConnectCommand
@@ -46,6 +49,11 @@ namespace FlightSimulator.ViewModels
         public FlightViewModel()
         {
             model = new FlightModel();
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            {
+                propertyChanged?.Invoke(this, new PropertyChangedEventArgs(e.PropertyName));
+
+            };
         }
         
         private void OnConnectClick()
