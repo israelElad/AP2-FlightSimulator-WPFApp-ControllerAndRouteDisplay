@@ -13,7 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Sockets;
-
+using FlightSimulator.ViewModels;
+using FlightSimulator.Model;
 
 namespace FlightSimulator.Views
 {
@@ -22,25 +23,13 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class FlightView : UserControl
     {
-        SettingsView settingsWindow;
+        public FlightViewModel viewModel;
+
         public FlightView()
         {
             InitializeComponent();
-        }
-
-        private void Settings_Click(object sender, RoutedEventArgs e)
-        {
-            //if settings window wasn't created or was created but isn't open- create and show it.
-            if (settingsWindow == null|| !settingsWindow.isOpen)
-            { 
-                settingsWindow = new SettingsView();
-                settingsWindow.Show();
-            }
-        }
-
-        private void Connect_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.viewModel = new FlightViewModel();
+            DataContext = viewModel;
         }
     }
 }
