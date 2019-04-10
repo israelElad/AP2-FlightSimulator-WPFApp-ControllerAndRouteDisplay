@@ -43,14 +43,17 @@ namespace FlightSimulator.ViewModels
             get;
         }
 
-        //public FlightViewModel(FlightModel model)
-        //{
-        //  _model = model;
-        //}
-
+        public FlightViewModel()
+        {
+            model = new FlightModel();
+        }
         
         private void OnConnectClick()
         {
+            if (settingsWindow == null)
+            {
+                settingsWindow = new SettingsView();
+            }
             model.StartRead(settingsWindow.viewModel.FlightServerIP, settingsWindow.viewModel.FlightInfoPort);
         }
 
