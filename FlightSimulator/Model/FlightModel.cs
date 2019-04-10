@@ -42,6 +42,11 @@ namespace FlightSimulator.Model
             }
         }
 
+        public FlightModel()
+        {
+            server = new Server();
+        }
+
         //opens a server and a thread that reads data from client
         public void StartRead(String ip, int port)
         {

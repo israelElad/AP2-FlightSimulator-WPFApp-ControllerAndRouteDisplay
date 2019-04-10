@@ -18,8 +18,8 @@
         <views:FlightBoardView Grid.Row="1" Grid.Column="0"/>
         <Viewbox Grid.Row="0" Grid.Column="0">
             <Grid>
-                <Button Name="Connect" Content="Connect" Margin="150, 10, 190, 10" Click="Connect_Click" />
-                <Button Name="Settings" Content="Settings" Margin="220, 10, 120, 10" Click="Settings_Click"/>
+                <Button Name="Connect" Content="Connect" Command="{Binding ConnectCommand}" Margin="150, 10, 190, 10" />
+                <Button Name="Settings" Content="Settings" Command="{Binding SettingsCommand}" Margin="220, 10, 120, 10" />
             </Grid>
         </Viewbox>
     </Grid>

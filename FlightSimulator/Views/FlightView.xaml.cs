@@ -29,13 +29,7 @@ namespace FlightSimulator.Views
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            SettingsView settingsWindow = new SettingsView();
-            settingsWindow.Show();
-        }
-
-        private void Connect_Click(object sender, RoutedEventArgs e)
-        {
-
+            
         }
     }
 }
