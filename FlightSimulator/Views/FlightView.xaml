@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulator.Views"
              xmlns:views="clr-namespace:FlightSimulator.Views"
+             xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -15,7 +16,32 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <views:FlightBoardView Grid.Row="1" Grid.Column="0"/>
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.Resources>
+                <Style TargetType="TextBlock" flight:Key="LabelStyle">
+                    <Setter Property="FontSize" Value="20" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Margin" Value="4" />
+                </Style>
+                <RotateTransform flight:Key="rotate" Angle="90"/>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center">Lon</TextBlock>
+            <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter">
+            </d3:ChartPlotter>
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center">Lat</TextBlock>
+        </Grid>
+
         <Viewbox Grid.Row="0" Grid.Column="0">
             <Grid>
                 <Button Name="Connect" Content="Connect" Command="{Binding ConnectCommand}" Margin="150, 10, 190, 10" />

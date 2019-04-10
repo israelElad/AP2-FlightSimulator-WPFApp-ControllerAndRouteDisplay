@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using System.Net.Sockets;
 using FlightSimulator.ViewModels;
 using FlightSimulator.Model;
+using Microsoft.Research.DynamicDataDisplay.DataSources;
+using Microsoft.Research.DynamicDataDisplay;
+using System.ComponentModel;
 
 namespace FlightSimulator.Views
 {
@@ -23,13 +26,33 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class FlightView : UserControl
     {
+        ObservableDataSource<Point> planeLocations = null;
         public FlightViewModel viewModel;
 
         public FlightView()
         {
             InitializeComponent();
             this.viewModel = new FlightViewModel();
+            viewModel.PropertyChanged += Vm_PropertyChanged;
             DataContext = viewModel;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            planeLocations = new ObservableDataSource<Point>();
+            // Set identity mapping of point in collection to point on plot
+            planeLocations.SetXYMapping(p => p);
+            plotter.AddLineGraph(planeLocations, 2, "Route");
+        }
+
+        private void Vm_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
+            {
+                Point p1 = new Point(viewModel.Lat, viewModel.Lon);
+                Console.WriteLine("propChanges" + p1.X + "_" + p1.Y);
+                planeLocations.AppendAsync(Dispatcher, p1);
+            }
         }
     }
 }

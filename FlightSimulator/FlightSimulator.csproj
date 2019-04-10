@@ -81,9 +81,6 @@
     <Compile Include="Views\FlightView.xaml.cs">
       <DependentUpon>FlightView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FlightBoardView.xaml.cs">
-      <DependentUpon>FlightBoardView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Joystick.xaml.cs">
       <DependentUpon>Joystick.xaml</DependentUpon>
     </Compile>
@@ -106,10 +103,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FlightView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FlightBoardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
