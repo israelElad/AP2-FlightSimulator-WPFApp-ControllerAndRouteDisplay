@@ -22,6 +22,7 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class FlightView : UserControl
     {
+        SettingsView settingsWindow;
         public FlightView()
         {
             InitializeComponent();
@@ -29,7 +30,17 @@ namespace FlightSimulator.Views
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            
+            //if settings window wasn't created or was created but isn't open- create and show it.
+            if (settingsWindow == null|| !settingsWindow.isOpen)
+            { 
+                settingsWindow = new SettingsView();
+                settingsWindow.Show();
+            }
+        }
+
+        private void Connect_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
