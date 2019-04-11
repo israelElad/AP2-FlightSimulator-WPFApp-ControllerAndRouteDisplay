@@ -33,7 +33,7 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             this.viewModel = new FlightViewModel();
-            viewModel.PropertyChanged += Vm_PropertyChanged;
+            viewModel.propertyChanged += Vm_PropertyChanged;
             DataContext = viewModel;
         }
 
