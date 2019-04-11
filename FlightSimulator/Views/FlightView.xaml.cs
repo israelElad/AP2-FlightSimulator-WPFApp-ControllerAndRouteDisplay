@@ -33,9 +33,9 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             this.viewModel = new FlightViewModel();
-            DataContext = viewModel;
             //if a property changes in viewModel- activate Vm_PropertyChanged.
-            viewModel.PropertyChanged2 += Vm_PropertyChanged;
+            viewModel.PropertyChanged += Vm_PropertyChanged;
+            DataContext = viewModel;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -52,7 +52,7 @@ namespace FlightSimulator.Views
         * */
         private void Vm_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon"))
+            if ((e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon")) && (viewModel.Lat != 0 && viewModel.Lon != 0))
             {
                 Point p1 = new Point(viewModel.Lat, viewModel.Lon);
                 Console.WriteLine("propChanges" + p1.X + "_" + p1.Y);
