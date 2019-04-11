@@ -16,7 +16,6 @@ namespace FlightSimulator.ViewModels
         private FlightModel model;
         private SettingsView settingsWindow;
 
-        public event PropertyChangedEventHandler PropertyChanged2;
 
         private ICommand _connectCommand;
         public ICommand ConnectCommand
@@ -51,7 +50,7 @@ namespace FlightSimulator.ViewModels
             model = new FlightModel();
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
-                PropertyChanged2?.Invoke(this, new PropertyChangedEventArgs(e.PropertyName));
+                NotifyPropertyChanged(e.PropertyName);
 
             };
         }
