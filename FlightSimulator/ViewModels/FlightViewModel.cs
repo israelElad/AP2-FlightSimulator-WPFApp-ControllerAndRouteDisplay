@@ -62,6 +62,8 @@ namespace FlightSimulator.ViewModels
                 settingsWindow = new SettingsView();
             }
             model.StartRead(settingsWindow.viewModel.FlightServerIP, settingsWindow.viewModel.FlightInfoPort);
+            Client.Instance.connectToServer(settingsWindow.viewModel.FlightServerIP, settingsWindow.viewModel.FlightCommandPort);
+            Console.WriteLine("connected !!");
         }
 
         private void OnSettingsClick()
