@@ -12,9 +12,8 @@ namespace FlightSimulator.Model
     class FlightModel : BaseNotify
     {
         private Server server;
-        private event PropertyChangedEventHandler propertyChanged;
 
-        private double lon;
+        private double lon = 0;
         public double Lon
         {
             get
@@ -24,11 +23,11 @@ namespace FlightSimulator.Model
             set
             {
                 lon = value;
-                propertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lon"));
             }
         }
 
-        private double lat;
+        private double lat = 0;
         public double Lat
         {
             get
@@ -38,7 +37,7 @@ namespace FlightSimulator.Model
             set
             {
                 lat = value;
-                propertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lat"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lat"));
             }
         }
 

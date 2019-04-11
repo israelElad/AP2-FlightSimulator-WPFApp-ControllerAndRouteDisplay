@@ -33,9 +33,9 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             this.viewModel = new FlightViewModel();
-            //if a property changes in viewModel- activate Vm_PropertyChanged.
-            viewModel.propertyChanged += Vm_PropertyChanged;
             DataContext = viewModel;
+            //if a property changes in viewModel- activate Vm_PropertyChanged.
+            viewModel.PropertyChanged2 += Vm_PropertyChanged;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
