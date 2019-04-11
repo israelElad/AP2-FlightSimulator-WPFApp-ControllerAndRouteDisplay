@@ -34,7 +34,7 @@ namespace FlightSimulator.Views
             InitializeComponent();
             this.viewModel = new FlightViewModel();
             //if a property changes in viewModel- activate Vm_PropertyChanged.
-            viewModel.propertyChanged += Vm_PropertyChanged;
+            viewModel.PropertyChanged += Vm_PropertyChanged;
             DataContext = viewModel;
         }
 
