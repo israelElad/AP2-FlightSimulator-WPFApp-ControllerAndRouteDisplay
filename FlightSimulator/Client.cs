@@ -11,9 +11,8 @@ namespace FlightSimulator
 {
     class Client
     {
-        private TcpClient client;
         private bool IsConnected;
-        private BinaryWriter writer;
+        Socket soc;
 
         // instance for singleton pattern
         private static Client instance = null;
@@ -40,19 +39,20 @@ namespace FlightSimulator
         // open server
         public void connectToServer(string IP, int port)
         {
-            client = new TcpClient();
-            while (!client.Connected)
+            soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            while (!soc.Connected)
             {
                 try
                 {
-                    client.Connect(new System.Net.IPEndPoint(IPAddress.Parse(IP), port));
+                    System.Net.IPAddress ipAdd = System.Net.IPAddress.Parse(IP);
+                    System.Net.IPEndPoint remoteEP = new IPEndPoint(ipAdd, port);
+                    soc.Connect(remoteEP);
                 } catch
                 {
                     continue;
                 }
             }
             IsConnected = true;
-            writer = new BinaryWriter(client.GetStream());
         }
 
         // read from client and separate by commas
@@ -60,15 +60,15 @@ namespace FlightSimulator
         {
             for (int i = 0; i<lines.Length; i++)
             {
-                String lineWithEnter = lines[i] + "\r\n";
-                writer.Write(lineWithEnter);
+                byte[] lineWithEnter = System.Text.Encoding.ASCII.GetBytes(lines[i]+ "\r\n");
+                soc.Send(lineWithEnter);
             }
         }
 
         // close server
         public void CloseClient()
         {
-            client.Close();
+            soc.Close();
             IsConnected = false;
         }
     }
