@@ -61,15 +61,15 @@ namespace FlightSimulator.ViewModels
             {
                 settingsWindow = new SettingsView();
             }
-            model.StartRead(settingsWindow.viewModel.FlightServerIP, settingsWindow.viewModel.FlightInfoPort);
-            Client.Instance.connectToServer(settingsWindow.viewModel.FlightServerIP, settingsWindow.viewModel.FlightCommandPort);
+            model.StartRead(settingsWindow.ViewModel.FlightServerIP, settingsWindow.ViewModel.FlightInfoPort);
+            Client.Instance.ConnectToServer(settingsWindow.ViewModel.FlightServerIP, settingsWindow.ViewModel.FlightCommandPort);
             Console.WriteLine("connected !!");
         }
 
         private void OnSettingsClick()
         {
             //if settings window wasn't created or was created but isn't open- create and show it.
-            if (settingsWindow == null || !settingsWindow.isOpen)
+            if (settingsWindow == null || !settingsWindow.IsOpen)
             {
                 settingsWindow = new SettingsView();
                 settingsWindow.Show();

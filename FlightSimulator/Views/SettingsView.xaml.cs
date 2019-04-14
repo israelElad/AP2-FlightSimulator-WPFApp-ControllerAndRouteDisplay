@@ -21,19 +21,19 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class SettingsView : Window
     {
-        public SettingsWindowViewModel viewModel { get; }
-        public bool isOpen { get; set; } 
+        public SettingsWindowViewModel ViewModel { get; }
+        public bool IsOpen { get; set; } 
         public SettingsView()
         {
             InitializeComponent();
-            isOpen = true;
-            this.viewModel = new SettingsWindowViewModel(new ApplicationSettingsModel());
-            DataContext = viewModel;
+            IsOpen = true;
+            this.ViewModel = new SettingsWindowViewModel(new ApplicationSettingsModel());
+            DataContext = ViewModel;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            isOpen = false;
+            IsOpen = false;
             this.Close();
         }
 
@@ -42,8 +42,8 @@ namespace FlightSimulator.Views
             IP.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             InfoPort.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             CommandPort.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            viewModel.SaveSettings();
-            isOpen = false;
+            ViewModel.SaveSettings();
+            IsOpen = false;
             this.Close();
         }
     }

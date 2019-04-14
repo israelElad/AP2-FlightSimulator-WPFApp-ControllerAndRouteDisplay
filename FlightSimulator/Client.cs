@@ -38,7 +38,7 @@ namespace FlightSimulator
         }
 
         // open server
-        public void connectToServer(string IP, int port)
+        public void ConnectToServer(string IP, int port)
         {
             client = new TcpClient();
             while (!client.Connected)
@@ -56,7 +56,7 @@ namespace FlightSimulator
         }
 
         // read from client and separate by commas
-        public void writeToServer(String[] lines)
+        public void WriteToServer(String[] lines)
         {
             for (int i = 0; i<lines.Length; i++)
             {

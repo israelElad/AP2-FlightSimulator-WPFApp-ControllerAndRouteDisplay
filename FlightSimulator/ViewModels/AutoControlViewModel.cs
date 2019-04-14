@@ -24,7 +24,7 @@ namespace FlightSimulator.ViewModels
         private void OnOKClick()
         {
             String[] separated = TextWithSets.Split('\n');
-            Client.Instance.writeToServer(separated);
+            Client.Instance.WriteToServer(separated);
         }
     }
 }

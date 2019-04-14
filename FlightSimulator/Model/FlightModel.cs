@@ -57,8 +57,6 @@ namespace FlightSimulator.Model
                     String[] data = server.readFromClient();
                     Lon = Convert.ToDouble(data[0]);
                     Lat = Convert.ToDouble(data[1]);
-                    Console.WriteLine("from client:1:"+lon);
-                    Console.WriteLine("from client:2:"+lat);
                 }
             }).Start();
         }
