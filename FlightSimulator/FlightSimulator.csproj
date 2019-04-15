@@ -75,6 +75,7 @@
     <Compile Include="ViewModels\AutoControlViewModel.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\FlightViewModel.cs" />
+    <Compile Include="ViewModels\ManualControlViewModel.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />
     <Compile Include="Views\AutoControlView.xaml.cs">
       <DependentUpon>AutoControlView.xaml</DependentUpon>
