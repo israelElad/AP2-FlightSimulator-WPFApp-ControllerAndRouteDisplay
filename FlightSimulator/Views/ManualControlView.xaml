@@ -34,7 +34,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <TextBlock Name="elevatorIndicator" Text="{Binding Elevator}" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="1" >
+            <TextBlock Name="elevatorIndicator" Text="{Binding Elevator, StringFormat=N2}" FontWeight="Bold" Margin="5,0,5,0" FontSize="14" Grid.Row="1" >
                 <TextBlock.LayoutTransform>
                     <RotateTransform Angle="90" />
                 </TextBlock.LayoutTransform>
@@ -55,7 +55,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBlock Name="aileron" Text="← aileron →"  FontWeight="Bold" Margin="122,5,120.8,4.8" FontSize="14" Grid.Column="0" HorizontalAlignment="Center" Grid.RowSpan="2"/>
-            <TextBlock Name="aileronIndicator" Text="{Binding Aileron}" FontWeight="Bold" Margin="0,5,5,4.8" FontSize="14" Grid.Column="1" Grid.RowSpan="2" Width="35"/>
+            <TextBlock Name="aileronIndicator" Text="{Binding Aileron, StringFormat=N2}" FontWeight="Bold" Margin="0,5,5,4.8" FontSize="14" Grid.Column="1" Grid.RowSpan="2" Width="35"/>
         </Grid>
         <local:Joystick />
     </DockPanel>
