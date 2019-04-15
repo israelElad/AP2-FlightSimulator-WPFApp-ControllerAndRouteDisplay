@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FlightSimulator
 {
@@ -16,7 +12,6 @@ namespace FlightSimulator
 
         // instance for singleton pattern
         private static Client instance = null;
-
 
         private Client()
         {
@@ -44,8 +39,8 @@ namespace FlightSimulator
             {
                 try
                 {
-                    System.Net.IPAddress ipAdd = System.Net.IPAddress.Parse(IP);
-                    System.Net.IPEndPoint remoteEP = new IPEndPoint(ipAdd, port);
+                    IPAddress ipAdd = IPAddress.Parse(IP);
+                    IPEndPoint remoteEP = new IPEndPoint(ipAdd, port);
                     soc.Connect(remoteEP);
                 } catch
                 {
