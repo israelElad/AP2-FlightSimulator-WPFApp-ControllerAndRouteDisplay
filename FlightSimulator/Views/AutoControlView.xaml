@@ -12,7 +12,7 @@
                 <Button Name="OK" Content="OK" Command="{Binding OKCommand}" Margin="129,10,185,10.2" />
                 <Button Name="Clear" Content="Clear" Margin="189,10,119,10.2" Click="Clear_Click"/>
             </Grid>
-            <TextBox Name="TextBoxAuto" Text="{Binding Path=TextWithSets}" Height="300" Width="356">
+            <TextBox Name="TextBoxAuto" Text="{Binding Path=TextWithSets}" Height="300" Width="356" AcceptsReturn="True">
                 <TextBox.Style>
                     <Style TargetType="{x:Type TextBox}">
                         <Setter Property="Background" Value="DarkSalmon"/>
