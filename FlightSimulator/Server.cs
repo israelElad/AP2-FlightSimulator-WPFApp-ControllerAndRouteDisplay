@@ -18,7 +18,18 @@ namespace FlightSimulator
         private Thread thread;
 
         public bool IsConnected { get; set; }
-        public String[] Data { get; set; }
+        private String[] data;
+        public String[] Data {
+            get
+            {
+                //mutex.WaitOne();
+                return data;
+            }
+            set
+            {
+                data = value;
+            }
+        }
 
         // instance for singleton pattern
         private static Server instance = null;
@@ -98,7 +109,7 @@ namespace FlightSimulator
                 }
             }
             Data = buffer.Split(',');
-            Console.WriteLine(Data[0] + " " + Data[1]);
+            //Console.WriteLine(Data[23] + " " + Data[19] + " " + Data[20] + " " + Data[21]);
         }
         
         // close server

@@ -66,8 +66,12 @@ namespace FlightSimulator.Model
             }
         }
 
-        //opens a server and a thread that reads data from client
-        public void ReadLonAndLat()
+        public ManualControlModel()
+        {
+            ReadIndicators();
+        }
+
+        public void ReadIndicators()
         {
             new Thread(delegate ()
             {
@@ -79,6 +83,10 @@ namespace FlightSimulator.Model
                         Aileron = Convert.ToDouble(Server.Instance.Data[19]);
                         Elevator = Convert.ToDouble(Server.Instance.Data[20]);
                         Rudder = Convert.ToDouble(Server.Instance.Data[22]);
+                        Thread.Sleep(2000);
+                        //Server.Instance.mutex.ReleaseMutex();
+                        Console.WriteLine(Server.Instance.Data[23] + "_" + Server.Instance.Data[19] + "_" + Server.Instance.Data[20] + "_" + Server.Instance.Data[21]);
+                        Console.WriteLine(Throttle + " " + Aileron + " " + Elevator + " " + Rudder);
                     }
                 }
             }).Start();

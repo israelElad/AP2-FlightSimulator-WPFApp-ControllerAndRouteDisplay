@@ -16,7 +16,6 @@ namespace FlightSimulator.ViewModels
         private FlightModel model;
         private SettingsView settingsWindow;
 
-
         private ICommand _connectCommand;
         public ICommand ConnectCommand
         {
@@ -53,6 +52,7 @@ namespace FlightSimulator.ViewModels
                 NotifyPropertyChanged(e.PropertyName);
 
             };
+            model.ReadLonAndLat();
         }
         
         private void OnConnectClick()
@@ -74,7 +74,6 @@ namespace FlightSimulator.ViewModels
             Client.Instance.ConnectToServer(settingsWindow.ViewModel.FlightServerIP, settingsWindow.ViewModel.FlightCommandPort);
             
             Console.WriteLine("connected !!");
-            model.ReadLonAndLat();
         }
 
         private void OnSettingsClick()

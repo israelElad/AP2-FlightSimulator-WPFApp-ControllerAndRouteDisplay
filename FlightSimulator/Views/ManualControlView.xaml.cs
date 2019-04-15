@@ -28,5 +28,12 @@ namespace FlightSimulator.Views
             viewModel = new ManualControlViewModel();
             DataContext = viewModel;
         }
+
+        private void ThrottleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            String[] set = { };
+            //set[0] = "set "
+            Client.Instance.WriteToServer(set);
+        }
     }
 }

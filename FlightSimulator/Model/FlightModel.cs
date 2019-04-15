@@ -39,7 +39,6 @@ namespace FlightSimulator.Model
             }
         }
 
-        //opens a server and a thread that reads data from client
         public void ReadLonAndLat()
         {
             new Thread(delegate ()
@@ -50,6 +49,8 @@ namespace FlightSimulator.Model
                     {
                         Lon = Convert.ToDouble(Server.Instance.Data[0]);
                         Lat = Convert.ToDouble(Server.Instance.Data[1]);
+                        Thread.Sleep(1000);
+                        //Server.Instance.mutex.ReleaseMutex();
                     }
                 }
             }).Start();
