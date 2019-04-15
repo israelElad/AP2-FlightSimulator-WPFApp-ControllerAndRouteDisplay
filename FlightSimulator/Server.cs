@@ -15,9 +15,21 @@ namespace FlightSimulator
         private TcpListener server;
         private TcpClient connectedClient;
         private BinaryReader reader;
+        public Mutex mutex { get; }
 
         public bool IsConnected { get; set; }
-        public String[] Data { get; set; }
+        private String[] data;
+        public String[] Data {
+            get
+            {
+                //mutex.WaitOne();
+                return data;
+            }
+            set
+            {
+                data = value;
+            }
+        }
 
         // instance for singleton pattern
         private static Server instance = null;
@@ -25,6 +37,7 @@ namespace FlightSimulator
         private Server()
         {
             this.IsConnected = false;
+            mutex = new Mutex();
         }
 
         // instance method for singleton pattern
@@ -81,7 +94,7 @@ namespace FlightSimulator
                 c = reader.ReadChar();
             }
             Data = buffer.Split(',');
-            Console.WriteLine(Data[0] + " " + Data[1]);
+            //Console.WriteLine(Data[23] + " " + Data[19] + " " + Data[20] + " " + Data[21]);
         }
         
         // close server
