@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FlightSimulator
@@ -13,31 +14,60 @@ namespace FlightSimulator
     {
         private TcpListener server;
         private TcpClient connectedClient;
-        private bool isConnected;
         private BinaryReader reader;
 
-        public Server()
+        public bool IsConnected { get; set; }
+        private Mutex mutex;
+        public String[] Data { get; set; }
+
+        // instance for singleton pattern
+        private static Server instance = null;
+
+        private Server()
         {
-            this.isConnected = false;
+            this.IsConnected = false;
+            mutex = new Mutex();
+        }
+
+        // instance method for singleton pattern
+        public static Server Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Server();
+                }
+                return instance;
+            }
         }
 
         // open server
-        public void openServer(string IP, int port)
+        public void OpenServer(string IP, int port)
         {
-            server = new TcpListener(new System.Net.IPEndPoint(IPAddress.Parse(IP), port));
+            server = new TcpListener(new IPEndPoint(IPAddress.Parse(IP), port));
             server.Start();
+            Thread thread = new Thread(() => 
+            {
+                while (true) {
+                    try {
+                        connectedClient = server.AcceptTcpClient();
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                    reader = new BinaryReader(connectedClient.GetStream());
+                    IsConnected = true;
+                    ReadFromClient();
+                }
+            });
+            thread.Start();
         }
 
         // read from client and separate by commas
-        public String[] readFromClient()
+        public void ReadFromClient()
         {
-            String[] separated = { };
-            if (!isConnected)
-            {
-                connectedClient = server.AcceptTcpClient();
-                reader = new BinaryReader(connectedClient.GetStream());
-                isConnected = true;
-            }
             String buffer = "";
             char c;
             c = reader.ReadChar();
@@ -46,15 +76,15 @@ namespace FlightSimulator
                 buffer += c;
                 c = reader.ReadChar();
             }
-            separated = buffer.Split(',');
-            return separated;
+            mutex.WaitOne();
+            Data = buffer.Split(',');
         }
         
         // close server
-        public void closeServer()
+        public void CloseServer()
         {
             server.Stop();
-            isConnected = false;
+            IsConnected = false;
         }
     }
 }

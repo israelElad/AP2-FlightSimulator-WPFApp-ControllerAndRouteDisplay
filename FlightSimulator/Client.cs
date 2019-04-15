@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FlightSimulator
 {
@@ -16,7 +12,6 @@ namespace FlightSimulator
 
         // instance for singleton pattern
         private static Client instance = null;
-
 
         private Client()
         {
@@ -37,15 +32,15 @@ namespace FlightSimulator
         }
 
         // open server
-        public void connectToServer(string IP, int port)
+        public void ConnectToServer(string IP, int port)
         {
             soc = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             while (!soc.Connected)
             {
                 try
                 {
-                    System.Net.IPAddress ipAdd = System.Net.IPAddress.Parse(IP);
-                    System.Net.IPEndPoint remoteEP = new IPEndPoint(ipAdd, port);
+                    IPAddress ipAdd = IPAddress.Parse(IP);
+                    IPEndPoint remoteEP = new IPEndPoint(ipAdd, port);
                     soc.Connect(remoteEP);
                 } catch
                 {
@@ -56,7 +51,7 @@ namespace FlightSimulator
         }
 
         // read from client and separate by commas
-        public void writeToServer(String[] lines)
+        public void WriteToServer(String[] lines)
         {
             for (int i = 0; i<lines.Length; i++)
             {

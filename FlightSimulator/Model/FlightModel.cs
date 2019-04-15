@@ -11,8 +11,6 @@ namespace FlightSimulator.Model
 {
     class FlightModel : BaseNotify
     {
-        private Server server;
-
         private double lon = 0;
         public double Lon
         {
@@ -41,22 +39,18 @@ namespace FlightSimulator.Model
             }
         }
 
-        public FlightModel()
-        {
-            server = new Server();
-        }
-
         //opens a server and a thread that reads data from client
-        public void StartRead(String ip, int port)
+        public void ReadLonAndLat()
         {
-            server.openServer(ip, port);
             new Thread(delegate ()
             {
                 while (true)
                 {
-                    String[] data = server.readFromClient();
-                    Lon = Convert.ToDouble(data[0]);
-                    Lat = Convert.ToDouble(data[1]);
+                    if (Server.Instance.Data != null)
+                    {
+                        Lon = Convert.ToDouble(Server.Instance.Data[0]);
+                        Lat = Convert.ToDouble(Server.Instance.Data[1]);
+                    }
                 }
             }).Start();
         }

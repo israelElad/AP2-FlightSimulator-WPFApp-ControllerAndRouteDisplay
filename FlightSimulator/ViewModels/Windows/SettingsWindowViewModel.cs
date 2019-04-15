@@ -22,11 +22,9 @@ namespace FlightSimulator.ViewModels.Windows
         public string FlightServerIP
         {
             get {
-                Console.WriteLine("Get");
                 return model.FlightServerIP; }
             set
             {
-                Console.WriteLine("Set");
                 model.FlightServerIP = value;
                 NotifyPropertyChanged("FlightServerIP");
             }
