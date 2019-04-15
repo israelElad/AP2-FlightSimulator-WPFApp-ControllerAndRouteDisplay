@@ -22,7 +22,6 @@ namespace FlightSimulator
         public String[] Data {
             get
             {
-                //mutex.WaitOne();
                 return data;
             }
             set
