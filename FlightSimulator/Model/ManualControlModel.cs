@@ -83,8 +83,7 @@ namespace FlightSimulator.Model
                         Aileron = Convert.ToDouble(Server.Instance.Data[19]);
                         Elevator = Convert.ToDouble(Server.Instance.Data[20]);
                         Rudder = Convert.ToDouble(Server.Instance.Data[22]);
-                        Thread.Sleep(2000);
-                        //Server.Instance.mutex.ReleaseMutex();
+                        Thread.Sleep(1000);
                         Console.WriteLine(Server.Instance.Data[23] + "_" + Server.Instance.Data[19] + "_" + Server.Instance.Data[20] + "_" + Server.Instance.Data[21]);
                         Console.WriteLine(Throttle + " " + Aileron + " " + Elevator + " " + Rudder);
                     }

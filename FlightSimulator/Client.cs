@@ -7,7 +7,7 @@ namespace FlightSimulator
 {
     class Client
     {
-        private bool IsConnected;
+        public bool IsConnected { get;set;}
         Socket soc;
 
         // instance for singleton pattern

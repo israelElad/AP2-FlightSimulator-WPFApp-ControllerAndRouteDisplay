@@ -15,14 +15,13 @@ namespace FlightSimulator
         private TcpListener server;
         private TcpClient connectedClient;
         private BinaryReader reader;
-        public Mutex mutex { get; }
+        private Thread thread;
 
         public bool IsConnected { get; set; }
         private String[] data;
         public String[] Data {
             get
             {
-                //mutex.WaitOne();
                 return data;
             }
             set
@@ -37,7 +36,6 @@ namespace FlightSimulator
         private Server()
         {
             this.IsConnected = false;
-            mutex = new Mutex();
         }
 
         // instance method for singleton pattern
@@ -58,7 +56,7 @@ namespace FlightSimulator
         {
             server = new TcpListener(new IPEndPoint(IPAddress.Parse(IP), port));
             server.Start();
-            Thread thread = new Thread(() => 
+            thread = new Thread(() => 
             {
                 while (true) {
                     if (!IsConnected)
@@ -87,11 +85,27 @@ namespace FlightSimulator
         {
             String buffer = "";
             char c;
-            c = reader.ReadChar();
+            try
+            {
+                c = reader.ReadChar();
+            }
+            catch 
+            {
+                Console.WriteLine("Reading from client failed");
+                return;
+            }
             while (c != '\n')
             {
                 buffer += c;
-                c = reader.ReadChar();
+                try
+                {
+                    c = reader.ReadChar();
+                }
+                catch
+                {
+                    Console.WriteLine("Reading from client failed");
+                    return;
+                }
             }
             Data = buffer.Split(',');
             //Console.WriteLine(Data[23] + " " + Data[19] + " " + Data[20] + " " + Data[21]);
@@ -101,6 +115,7 @@ namespace FlightSimulator
         public void CloseServer()
         {
             server.Stop();
+            thread.Abort();
             IsConnected = false;
         }
     }
