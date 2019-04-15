@@ -13,8 +13,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="60" />
             </Grid.ColumnDefinitions>
-            <Slider Name="rudderSlider" Grid.Column="0" Minimum="-1" Maximum="1" Value="{Binding Rudder, Mode=OneWay}" Margin="60,10,10,10"/>
-            <TextBlock Name="rudderIndicator" Text="{Binding ElementName=rudderSlider, Path=Value, Mode=OneWay}" Grid.Column="1" FontWeight="Bold" Margin="0,10,20,4" FontSize="14"/>
+            <Slider Name="rudderSlider" Grid.Column="0" Minimum="-1" Maximum="1" Value="{Binding Rudder, Mode=OneWay}" Margin="60,10,10,10" ValueChanged="RudderSlider_ValueChanged"/>
+            <TextBlock Name="rudderIndicator" Text="{Binding ElementName=rudderSlider, Path=Value, Mode=OneWay, StringFormat=N2}" Grid.Column="1" FontWeight="Bold" Margin="0,10,20,4" FontSize="14"/>
         </Grid>
         <TextBlock Name="throttle" Text="← throttle →" DockPanel.Dock="Left" VerticalAlignment="Center" FontWeight="Bold" Margin="5,0,0,0" FontSize="14">
             <TextBlock.LayoutTransform>
@@ -27,7 +27,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Slider Name="throttleSlider" Orientation="Vertical" Minimum="-1" Maximum="1" Value="{Binding Throttle, Mode=OneWay}" DockPanel.Dock="Left" Margin="10, 40, 10, 40" ValueChanged="ThrottleSlider_ValueChanged"/>
-            <TextBlock Name="throttleIndicator" Text="{Binding ElementName=throttleSlider, Path=Value, Mode=OneWay}" FontWeight="Bold" Margin="10,20,-15.6,352.8" FontSize="14" HorizontalAlignment="Left" Width="44"/>
+            <TextBlock Name="throttleIndicator" Text="{Binding ElementName=throttleSlider, Path=Value, Mode=OneWay, StringFormat=N2}" FontWeight="Bold" Margin="10,20,-15.6,352.8" FontSize="14" HorizontalAlignment="Left" Width="44"/>
         </Grid>
         <Grid DockPanel.Dock="Right">
             <Grid.RowDefinitions>
