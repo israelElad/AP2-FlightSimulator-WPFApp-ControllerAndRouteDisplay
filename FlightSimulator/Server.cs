@@ -17,7 +17,6 @@ namespace FlightSimulator
         private BinaryReader reader;
 
         public bool IsConnected { get; set; }
-        private Mutex mutex;
         public String[] Data { get; set; }
 
         // instance for singleton pattern
@@ -26,7 +25,6 @@ namespace FlightSimulator
         private Server()
         {
             this.IsConnected = false;
-            mutex = new Mutex();
         }
 
         // instance method for singleton pattern
