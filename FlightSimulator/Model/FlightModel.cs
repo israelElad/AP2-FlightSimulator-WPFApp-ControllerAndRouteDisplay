@@ -11,7 +11,7 @@ namespace FlightSimulator.Model
 {
     class FlightModel : BaseNotify
     {
-        private double lon = 0;
+        private double lon;
         public double Lon
         {
             get
