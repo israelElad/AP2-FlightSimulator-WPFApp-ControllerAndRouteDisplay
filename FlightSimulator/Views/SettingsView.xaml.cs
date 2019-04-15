@@ -26,7 +26,6 @@ namespace FlightSimulator.Views
         public SettingsView()
         {
             InitializeComponent();
-            IsOpen = true;
             this.ViewModel = new SettingsWindowViewModel(new ApplicationSettingsModel());
             DataContext = ViewModel;
         }
@@ -45,6 +44,11 @@ namespace FlightSimulator.Views
             ViewModel.SaveSettings();
             IsOpen = false;
             this.Close();
+        }
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
         }
     }
 }

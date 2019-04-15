@@ -15,6 +15,7 @@ namespace FlightSimulator
         private TcpListener server;
         private TcpClient connectedClient;
         private BinaryReader reader;
+        private Thread thread;
 
         public bool IsConnected { get; set; }
         public String[] Data { get; set; }
@@ -45,7 +46,7 @@ namespace FlightSimulator
         {
             server = new TcpListener(new IPEndPoint(IPAddress.Parse(IP), port));
             server.Start();
-            Thread thread = new Thread(() => 
+            thread = new Thread(() => 
             {
                 while (true) {
                     if (!IsConnected)
@@ -74,11 +75,27 @@ namespace FlightSimulator
         {
             String buffer = "";
             char c;
-            c = reader.ReadChar();
+            try
+            {
+                c = reader.ReadChar();
+            }
+            catch 
+            {
+                Console.WriteLine("Reading from client failed");
+                return;
+            }
             while (c != '\n')
             {
                 buffer += c;
-                c = reader.ReadChar();
+                try
+                {
+                    c = reader.ReadChar();
+                }
+                catch
+                {
+                    Console.WriteLine("Reading from client failed");
+                    return;
+                }
             }
             Data = buffer.Split(',');
             Console.WriteLine(Data[0] + " " + Data[1]);
@@ -88,6 +105,7 @@ namespace FlightSimulator
         public void CloseServer()
         {
             server.Stop();
+            thread.Abort();
             IsConnected = false;
         }
     }
