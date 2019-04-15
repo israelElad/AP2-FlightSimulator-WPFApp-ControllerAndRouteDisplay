@@ -50,15 +50,21 @@ namespace FlightSimulator
             Thread thread = new Thread(() => 
             {
                 while (true) {
-                    try {
-                        connectedClient = server.AcceptTcpClient();
-                    }
-                    catch
+                    if (!IsConnected)
                     {
-                        continue;
+                        try
+                        {
+                            Console.WriteLine("enter try");
+                            connectedClient = server.AcceptTcpClient();
+                        }
+                        catch
+                        {
+                            continue;
+                        }
                     }
                     reader = new BinaryReader(connectedClient.GetStream());
                     IsConnected = true;
+                    Console.WriteLine("enter ReadFromClient");
                     ReadFromClient();
                 }
             });
@@ -76,8 +82,8 @@ namespace FlightSimulator
                 buffer += c;
                 c = reader.ReadChar();
             }
-            mutex.WaitOne();
             Data = buffer.Split(',');
+            Console.WriteLine(Data[0] + " " + Data[1]);
         }
         
         // close server
