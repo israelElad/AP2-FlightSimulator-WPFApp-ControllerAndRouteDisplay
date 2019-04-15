@@ -31,8 +31,7 @@ namespace FlightSimulator.Views
 
         private void ThrottleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            String[] set = { };
-            //set[0] = "set "
+            String[] set = { "set /controls/engines/current-engine/throttle " + rudderSlider.Value };
             Client.Instance.WriteToServer(set);
         }
     }
