@@ -53,10 +53,17 @@ namespace FlightSimulator
         // read from client and separate by commas
         public void WriteToServer(String[] lines)
         {
-            for (int i = 0; i<lines.Length; i++)
+            if (IsConnected)
             {
-                byte[] lineWithEnter = System.Text.Encoding.ASCII.GetBytes(lines[i]+ "\r\n");
-                soc.Send(lineWithEnter);
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    byte[] lineWithEnter = System.Text.Encoding.ASCII.GetBytes(lines[i] + "\r\n");
+                    soc.Send(lineWithEnter);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Client not connected. Cannot send data!");
             }
         }
 
