@@ -150,6 +150,10 @@ namespace FlightSimulator.Views
             Elevator = -deltaPos.Y/124;
             Aileron = deltaPos.X/124;
             Console.WriteLine("newAil:" + Aileron + "   newEle:" + Elevator);
+            String[] setElevator = { "set controls/flight/elevator " + Elevator };
+            Client.Instance.WriteToServer(setElevator);
+            String[] setAileron = { "set controls/flight/aileron " + Aileron };
+            Client.Instance.WriteToServer(setAileron);
 
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
