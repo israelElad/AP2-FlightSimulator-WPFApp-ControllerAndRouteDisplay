@@ -72,7 +72,6 @@ namespace FlightSimulator
                     }
                     reader = new BinaryReader(connectedClient.GetStream());
                     IsConnected = true;
-                    Console.WriteLine("enter ReadFromClient");
                     ReadFromClient();
                 }
             });
