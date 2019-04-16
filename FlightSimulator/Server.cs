@@ -90,6 +90,7 @@ namespace FlightSimulator
             catch 
             {
                 Console.WriteLine("Reading from client failed");
+                CloseServer();
                 return;
             }
             while (c != '\n')
@@ -102,6 +103,7 @@ namespace FlightSimulator
                 catch
                 {
                     Console.WriteLine("Reading from client failed");
+                    CloseServer();
                     return;
                 }
             }
@@ -112,8 +114,8 @@ namespace FlightSimulator
         public void CloseServer()
         {
             server.Stop();
-            thread.Abort();
             IsConnected = false;
+            thread.Abort();
         }
     }
 }
