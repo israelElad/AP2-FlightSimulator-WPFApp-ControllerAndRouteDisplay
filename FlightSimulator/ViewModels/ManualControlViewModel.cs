@@ -31,7 +31,6 @@ namespace FlightSimulator.ViewModels
             get { return model.Rudder; }
         }
 
-
         public ManualControlViewModel()
         {
             model = new ManualControlModel();

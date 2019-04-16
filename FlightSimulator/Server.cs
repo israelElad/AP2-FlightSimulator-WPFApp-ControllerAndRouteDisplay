@@ -63,7 +63,6 @@ namespace FlightSimulator
                     {
                         try
                         {
-                            Console.WriteLine("enter try");
                             connectedClient = server.AcceptTcpClient();
                         }
                         catch
@@ -108,7 +107,6 @@ namespace FlightSimulator
                 }
             }
             Data = buffer.Split(',');
-            //Console.WriteLine(Data[23] + " " + Data[19] + " " + Data[20] + " " + Data[21]);
         }
         
         // close server

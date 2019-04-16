@@ -146,10 +146,8 @@ namespace FlightSimulator.Views
             double distance = Math.Round(Math.Sqrt(deltaPos.X * deltaPos.X + deltaPos.Y * deltaPos.Y));
             if (distance >= canvasWidth / 2 || distance >= canvasHeight / 2)
                 return;
-            Console.WriteLine("prevAil:"+Aileron+"  prevEle:"+Elevator);
             Elevator = -deltaPos.Y/124;
             Aileron = deltaPos.X/124;
-            Console.WriteLine("newAil:" + Aileron + "   newEle:" + Elevator);
             String[] setElevator = { "set controls/flight/elevator " + Elevator };
             Client.Instance.WriteToServer(setElevator);
             String[] setAileron = { "set controls/flight/aileron " + Aileron };

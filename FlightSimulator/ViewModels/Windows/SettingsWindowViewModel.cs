@@ -14,6 +14,8 @@ namespace FlightSimulator.ViewModels.Windows
     {
         private ISettingsModel model;
 
+        public Action CloseAction { get; set; }
+
         public SettingsWindowViewModel(ISettingsModel model)
         {
             this.model = model;
@@ -60,37 +62,33 @@ namespace FlightSimulator.ViewModels.Windows
             model.ReloadSettings();
         }
 
-        #region Commands
-        #region ClickCommand
-        private ICommand _clickCommand;
-        public ICommand ClickCommand
-        {
-            get
-            {
-                return _clickCommand ?? (_clickCommand = new CommandHandler(() => OnClick()));
-            }
-        }
-        private void OnClick()
-        {
-            model.SaveSettings();
-        }
-        #endregion
-
-        #region CancelCommand
         private ICommand _cancelCommand;
         public ICommand CancelCommand
         {
             get
             {
-                return _cancelCommand ?? (_cancelCommand = new CommandHandler(() => OnCancel()));
+                return _cancelCommand ?? (_cancelCommand = new CommandHandler(() => OnCancelClick()));
             }
         }
-        private void OnCancel()
+        private void OnCancelClick()
         {
             model.ReloadSettings();
+            CloseAction();
         }
-        #endregion
-        #endregion
+
+        private ICommand _OKCommand;
+        public ICommand OKCommand
+        {
+            get
+            {
+                return _OKCommand ?? (_OKCommand = new CommandHandler(() => OnOKClick()));
+            }
+        }
+        private void OnOKClick()
+        {
+            model.SaveSettings();
+            CloseAction();
+        }
     }
 }
 
