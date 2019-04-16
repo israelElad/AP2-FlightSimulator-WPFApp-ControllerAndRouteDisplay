@@ -24,10 +24,5 @@ namespace FlightSimulator
             InitializeComponent();
             Header.Foreground = Brushes.BlueViolet;
         }
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-        {
-            // Shutdown the application.
-            Environment.Exit(0);
-        }
     }
 }
