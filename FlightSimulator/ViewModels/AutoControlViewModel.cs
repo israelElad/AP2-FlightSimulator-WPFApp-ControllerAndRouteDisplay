@@ -11,6 +11,7 @@ namespace FlightSimulator.ViewModels
     public class AutoControlViewModel
     {
         public string TextWithSets { get; set; }
+        public Action WhiteBackgroundAction { get; set; }
 
         private ICommand _OKCommand;
         public ICommand OKCommand
@@ -23,6 +24,7 @@ namespace FlightSimulator.ViewModels
 
         private void OnOKClick()
         {
+            WhiteBackgroundAction();
             String[] separated = TextWithSets.Split('\n');
             Client.Instance.WriteToServer(separated);
         }

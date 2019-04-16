@@ -49,7 +49,7 @@ namespace FlightSimulator.Model
                     {
                         Lon = Convert.ToDouble(Server.Instance.Data[0]);
                         Lat = Convert.ToDouble(Server.Instance.Data[1]);
-                        Thread.Sleep(1000);
+                        Thread.Sleep(500);
                     }
                 }
             }).Start();

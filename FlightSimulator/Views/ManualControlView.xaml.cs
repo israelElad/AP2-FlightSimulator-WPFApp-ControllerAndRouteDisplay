@@ -32,20 +32,15 @@ namespace FlightSimulator.Views
 
         private void ThrottleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (throttleSlider.Value != 0)
-            {
-                String[] set = { "set controls/engines/current-engine/throttle " + throttleSlider.Value };
-                Client.Instance.WriteToServer(set);
-            }
+            String[] set = { "set controls/engines/current-engine/throttle " + throttleSlider.Value };
+            Client.Instance.WriteToServer(set);
+
         }
 
         private void RudderSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (rudderSlider.Value != 0)
-            {
-                String[] set = { "set controls/flight/rudder " + rudderSlider.Value };
-                Client.Instance.WriteToServer(set);
-            }
+            String[] set = { "set controls/flight/rudder " + rudderSlider.Value };
+            Client.Instance.WriteToServer(set);
         }
     }
 }

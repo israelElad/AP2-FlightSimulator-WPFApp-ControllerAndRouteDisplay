@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-
+using System.Threading;
 
 namespace FlightSimulator
 {
     class Client
     {
         public bool IsConnected { get;set;}
+        Thread thread;
         Socket soc;
 
         // instance for singleton pattern
@@ -42,8 +43,9 @@ namespace FlightSimulator
                     IPAddress ipAdd = IPAddress.Parse(IP);
                     IPEndPoint remoteEP = new IPEndPoint(ipAdd, port);
                     soc.Connect(remoteEP);
-                } catch
+                } catch (SocketException)
                 {
+                    Console.WriteLine("Waiting for connection...");
                     continue;
                 }
             }
@@ -53,25 +55,40 @@ namespace FlightSimulator
         // read from client and separate by commas
         public void WriteToServer(String[] lines)
         {
-            if (IsConnected)
+            thread = new Thread(() =>
             {
-                for (int i = 0; i < lines.Length; i++)
+                if (IsConnected)
                 {
-                    byte[] lineWithEnter = System.Text.Encoding.ASCII.GetBytes(lines[i] + "\r\n");
-                    soc.Send(lineWithEnter);
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        byte[] lineWithEnter = System.Text.Encoding.ASCII.GetBytes(lines[i] + "\r\n");
+                        try
+                        {
+                            soc.Send(lineWithEnter);
+                            Thread.Sleep(2000);
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Writing to server failed");
+                            CloseClient();
+                            return;
+                        }
+                    }
                 }
-            }
-            else
-            {
-                Console.WriteLine("Client not connected. Cannot send data!");
-            }
+                else
+                {
+                    Console.WriteLine("Client not connected. Cannot send data!");
+                }
+            });
+            thread.Start();
         }
 
-        // close server
+        // close client
         public void CloseClient()
         {
             soc.Close();
             IsConnected = false;
+            //thread.Abort();
         }
     }
 }

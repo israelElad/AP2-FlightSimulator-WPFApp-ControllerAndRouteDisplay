@@ -65,8 +65,9 @@ namespace FlightSimulator
                         {
                             connectedClient = server.AcceptTcpClient();
                         }
-                        catch
+                        catch(SocketException)
                         {
+                            Console.WriteLine("Waiting for connection...");
                             continue;
                         }
                     }

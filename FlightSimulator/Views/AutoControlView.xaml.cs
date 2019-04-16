@@ -21,18 +21,27 @@ namespace FlightSimulator.Views
     /// </summary>
     public partial class AutoControlView : UserControl
     {
-        public AutoControlViewModel viewModel;
+        public AutoControlViewModel ViewModel;
 
         public AutoControlView()
         {
             InitializeComponent();
-            this.viewModel = new AutoControlViewModel();
-            DataContext = viewModel;
+            this.ViewModel = new AutoControlViewModel();
+            DataContext = ViewModel;
+            if (ViewModel.WhiteBackgroundAction == null)
+            {
+                ViewModel.WhiteBackgroundAction = new Action(() => TextBoxAuto.Background = Brushes.White);
+            }
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
             this.TextBoxAuto.Clear();
+        }
+
+        private void TextBoxAuto_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBoxAuto.Background = Brushes.DarkSalmon;
         }
     }
 }
