@@ -88,7 +88,6 @@ namespace FlightSimulator
         {
             soc.Close();
             IsConnected = false;
-            //thread.Abort();
         }
     }
 }

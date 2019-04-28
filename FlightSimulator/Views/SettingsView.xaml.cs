@@ -26,6 +26,7 @@ namespace FlightSimulator.Views
         {
             InitializeComponent();
             this.ViewModel = new SettingsWindowViewModel(new ApplicationSettingsModel());
+            //Define the view's DataContext to be the view model - binding will sync between them. 
             DataContext = ViewModel;
             if (ViewModel.CloseAction == null)
             {

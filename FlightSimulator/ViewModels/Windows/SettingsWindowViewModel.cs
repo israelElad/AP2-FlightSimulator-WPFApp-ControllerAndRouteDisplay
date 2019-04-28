@@ -21,6 +21,8 @@ namespace FlightSimulator.ViewModels.Windows
             this.model = model;
         }
 
+        //binding from View- gets values from model, and sets values entered by user in the model, while notifying that the propery was changed. 
+
         public string FlightServerIP
         {
             get {
@@ -61,6 +63,8 @@ namespace FlightSimulator.ViewModels.Windows
         {
             model.ReloadSettings();
         }
+
+        // ICommand properties returns a function to execute when clicked
 
         private ICommand _cancelCommand;
         public ICommand CancelCommand
