@@ -1,6 +1,12 @@
 # AP2-FlightSimulator-WPFApp-ControllerAndRouteDisplay
 Second year second semester- "Advanced programming 2" course- WPF App- Controller(interpreter and joystick) and a flight board that displays the route of the current flight
 
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/45766976/115541518-e3cc7e80-a2a7-11eb-9769-ef174c7efbd3.jpg">
+   <img src="https://user-images.githubusercontent.com/45766976/115541651-0eb6d280-a2a8-11eb-8fdd-95a1a3544e42.jpg" width="330">
+  <img src="https://user-images.githubusercontent.com/45766976/115541516-e333e800-a2a7-11eb-8f3e-370466634757.jpg" width="300">
+</p>
+
 In this project, we built a GUI (WPF application), which allows us to control manually and automatically an aircraft on the FlightGear simulator, and showing its route on a graph-like monitor, using the [MVVM architecture](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel), Client-Server architecture, and parallel programming.<br/><br/>
 
 We set up 2 TCP communication channels built into our code as follows:<br/>
@@ -28,7 +34,8 @@ In this monitor we have 2 control options, the transition from one option to ano
 The values of the aileron and the elevators are determined by the Joystick Control, which is in the Joystick.xaml file. Any change of one of these values leads to the values of the aircraft being updated by the Commands channel.<br/>
 
 * **Automatic control** - this component contains a TextBox control that allows us to write Set commands in the Commands channel.
-The commands are interpreted using [the interpreter we previously wrote](https://github.com/israelElad/AP1-FlightSimulator-Interpreter).
+The commands are interpreted using [the interpreter we previously wrote](https://github.com/israelElad/AP1-FlightSimulator-Interpreter).![ex2 git pic3](https://user-images.githubusercontent.com/45766976/115541639-0a8ab500-a2a8-11eb-83a4-70ba67bced49.jpg)
+
 This control contains 2 buttons:<br/><br/> 
 <tab><tab> * **OK button** - executes all the commands in the Commands channel one by one, when between each command there is a delay of 2 seconds so that we can see it in the simulator (this does not mean that the monitor is frozen while sending the information).<br/>
 We assume that the OK button would be pressed only once for each commands sending, and there would be no simultaneous sending of 2 different sets of commands.<br/><br/> 
