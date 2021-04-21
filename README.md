@@ -34,7 +34,7 @@ In this monitor we have 2 control options, the transition from one option to ano
 The values of the aileron and the elevators are determined by the Joystick Control, which is in the Joystick.xaml file. Any change of one of these values leads to the values of the aircraft being updated by the Commands channel.<br/>
 
 * **Automatic control** - this component contains a TextBox control that allows us to write Set commands in the Commands channel.
-The commands are interpreted using [the interpreter we previously wrote](https://github.com/israelElad/AP1-FlightSimulator-Interpreter).![ex2 git pic3](https://user-images.githubusercontent.com/45766976/115541639-0a8ab500-a2a8-11eb-83a4-70ba67bced49.jpg)
+The commands are interpreted using [the interpreter we previously wrote](https://github.com/israelElad/AP1-FlightSimulator-Interpreter).
 
 This control contains 2 buttons:<br/><br/> 
 <tab><tab> * **OK button** - executes all the commands in the Commands channel one by one, when between each command there is a delay of 2 seconds so that we can see it in the simulator (this does not mean that the monitor is frozen while sending the information).<br/>
