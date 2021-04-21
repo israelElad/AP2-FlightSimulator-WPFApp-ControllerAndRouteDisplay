@@ -1,5 +1,4 @@
 # AP2-FlightSimulator-WPFApp-ControllerAndRouteDisplay
-Second year second semester- "Advanced programming 2" course- WPF App- Controller(interpreter and joystick) and a flight board that displays the route of the current flight
 
 <p float="left">
   <img src="https://user-images.githubusercontent.com/45766976/115541518-e3cc7e80-a2a7-11eb-9769-ef174c7efbd3.jpg">
